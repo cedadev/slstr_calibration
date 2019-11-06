@@ -1,0 +1,32 @@
+## Script to move SLSTR test data from incoming area to destination group workspace area
+#
+##Steve Donegan x8123
+#
+##DPM data
+* * * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 3 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/find_test_files_per_last_N_mins.sh /group_workspaces/cems2/slstr_cpa/incoming/DPM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/DPM/2019/  80 True /group_workspaces/cems2/slstr_cpa/cron_logs/DPM/ >/dev/null 2>&1
+#
+##ICM data
+* * * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 3 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/find_test_files_per_last_N_mins.sh /group_workspaces/cems2/slstr_cpa/incoming/ICM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/ICM/2019/ 80 True /group_workspaces/cems2/slstr_cpa/cron_logs/ICM/ >/dev/null 2>&1
+#
+#
+00 13 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/manifest_checker_wrapper.sh DPM
+00 13 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/manifest_checker_wrapper.sh ICM
+#
+#
+##jobs to create backup.  Do this mid afternoon to give the manifest checkers a chance to run!
+00 15 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/create_tar_wrapper_DPM_lastjd.sh >/dev/null 2>&1
+30 15 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/create_tar_wrapper_ICM_lastjd.sh >/dev/null 2>&1
+#
+##Now generate report..
+00 17 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/report_overview.sh ICM >/dev/null 2>&1
+30 17 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/report_overview.sh DPM >/dev/null 2>&1
+#
+#
+##once tar backup has completed need to clear the data from the incoming directory
+00 19 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing//clear_incoming_wrapper_ICM_lastjd.sh >/dev/null 2>&1
+30 19 * * * root /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/cwraper.py edward.polehampton@stfc.ac.uk 1 /group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing//clear_incoming_wrapper_DPM_lastjd.sh >/dev/null 2>&1
+#
+#
+##backup manifest files too!
+00 23 * * * root find /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/incoming_report/ICM/daily_manifest -newermt $(date +%Y-%m-%d -d '1 day ago') -type f -name "*_daily_manifest.txt*" -print -exec cp -p {} /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/manifests/ICM/daily_manifest/ \; >/dev/null 2>&1
+30 23 * * * root find /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/incoming_report/DPM/daily_manifest -newermt $(date +%Y-%m-%d -d '1 day ago') -type f -name "*_daily_manifest.txt*" -print -exec cp -p {} /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/manifests/DPM/daily_manifest/ \; >/dev/null 2>&1
