@@ -1,0 +1,22 @@
+2 october 2019:
+
+written two scripts to download the products from MPC FTP site:
+download_mpc_monitoring.sh
+download_mpc_longtermtrends.sh
+
+Still to do:
+write overall script, which calls the first one for directories:
+2019
+bb_counts
+bb_temps
+viscal_counts
+
+and then calls the second one.
+
+Then once data have been downloaded for a certain date, upload a file back which tells a CRON job on the CCTP that it can delete the data for that date.
+Needs permissions to do so for data on CCTP.
+And to work out how to upload a file in a shell script.
+
+Then need to run the long term process to produce the website and the long term plots.
+
+

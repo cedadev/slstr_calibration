@@ -1,0 +1,7 @@
+00 00 * * * /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/crontamer/crontamer-master/crontamer.py -v -e steve.donegan@stfc.ac.uk '/group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/data_retriever_run_cpa_esrin.sh'
+
+00 00 * * * /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/crontamer/crontamer-master/crontamer.py -v -e steve.donegan@stfc.ac.uk '/group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/data_retriever_run_cpa_eumetsat.sh'
+
+00 01 * * * /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/crontamer/crontamer-master/crontamer.py -v -e steve.donegan@stfc.ac.uk '/group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/data_retriever_run_cpa_mpc.sh'
+
+00 18 * * * /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/crontamer/crontamer-master/crontamer.py -v -e steve.donegan@stfc.ac.uk '/group_workspaces/cems2/slstr_cpa/software/ftp_retriever/cron/unzipper_run.sh'

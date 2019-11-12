@@ -1,0 +1,15 @@
+#Configuration file to be used with the SLSTR test data rehearsal retrieval activity
+
+[default]
+#general connection details etc
+ftp_host: commissioning.sentinel3.esa.int
+ftp_user: s3a-commteam
+ftp_pw: S3A_COMM_R0
+check_days: True
+check_days_num: 16
+
+
+[LI_017_RoI_Greenland]
+ftp_server_path = '/Output/IPF/Products/ESRIN/OPTICAL/LI_017_RoI_Greenland'
+product_base = 'S3A_SL_'
+local_path = '/home/badc/eclipse_workspaces/sdonegan/sentinel3/test_download/data/OPTICAL/LI_017_RoI_Greenland'

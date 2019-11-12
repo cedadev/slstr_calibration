@@ -1,0 +1,21 @@
+## Script to move SLSTR test data from incoming area to destination group workspace area
+#
+##Steve Donegan x8123
+#
+#00 00 * * * root /usr/bin/python2.7 /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/FM02/phase_E1/software/ftp_retriever/data_retriever.py -c /group_
+workspaces/cems2/slstr_cpa/s3_slstr_raw_data/FM02/phase_E1/software/ftp_retriever/config/slstr_cpa_esrin.cfg   -ve -s ESRIN_LI_SLSTR_Calibration_VSC  >/de
+v/null 2>&1
+00 00 * * * root /usr/bin/python2.7 /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/data_retriever.py -c /group_workspaces/cems2/slstr_cpa/softwa
+re/ftp_retriever/config/slstr_cpa_esrin_s3a.cfg   -ve >/dev/null 2>&1
+#00 00 * * * root /usr/bin/python2.7 /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/FM02/phase_E1/software/ftp_retriever/data_retriever.py -c /group_
+workspaces/cems2/slstr_cpa/s3_slstr_raw_data/FM02/phase_E1/software/ftp_retriever/config/slstr_cpa_esrin.cfg  -v -Cer >/dev/null 2>&1
+
+00 00 * * * root /usr/bin/python2.7 /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/data_retriever.py -c /group_workspaces/cems2/slstr_cpa/softwa
+re/ftp_retriever/config/slstr_cpa_eumetsat_s3a.cfg  -v -Ce  >/dev/null 2>&1
+
+00 01 * * * root /usr/bin/python2.7 /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/data_retriever.py -c /group_workspaces/cems2/slstr_cpa/softwa
+re/ftp_retriever/config/slstr_cpa_mpc_s3a.cfg  -v -CeF  >/dev/null 2>&1
+
+#unzip and check the ESTIN data
+00 18 * * * root /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/unzipper.sh /group_workspaces/cems2/slstr_cpa/software/ftp_retriever/config/slst
+r_cpa_esrin_s3a.cfg >/dev/null 2>&1
