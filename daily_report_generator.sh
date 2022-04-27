@@ -32,9 +32,9 @@ do
         fi
 
 	#wrap report generator script
-	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/report_on_transfer.sh /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/DPM/ $jd $pad_hour /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_logs/DPM
+	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/report_on_transfer.sh /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/DPM/ $jd $pad_hour /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_logs/DPM
 
-	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/report_on_transfer.sh /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/ICM/ $jd $pad_hour /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_logs/ICM
+	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/report_on_transfer.sh /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/ICM/ $jd $pad_hour /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_logs/ICM
 
 	hour=`expr $hour + 1`
 done

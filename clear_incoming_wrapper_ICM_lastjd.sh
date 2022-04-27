@@ -11,6 +11,6 @@ echo $manifest_file
 if [ -f $manifest_file ]
 then
 	echo "Clearing incoming for $year_day"
-	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/clear_incoming.sh $manifest_file_incoming $manifest_file_target
+	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/clear_incoming.sh $manifest_file_incoming $manifest_file_target
 
 fi

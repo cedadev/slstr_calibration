@@ -10,6 +10,6 @@ echo $manifest_file
 if [ -f $manifest_file ]
 then
 	echo "Creating tar backup for $year_day"
-	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/create_tar.sh $manifest_file /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/S3C/DPM/
+	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/create_tar.sh $manifest_file /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/S3C/DPM/
 
 fi

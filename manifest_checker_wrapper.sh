@@ -18,7 +18,7 @@ then
 
 	if [ -f $manifest ]
 	then
-        	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/manifest_checker.sh $manifest /group_workspaces/cems2/slstr_cpa/incoming/DPM /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/DPM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_report/DPM
+        	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/manifest_checker.sh $manifest /group_workspaces/cems2/slstr_cpa/incoming/DPM /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/DPM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_report/DPM
 
 	else
 		echo "No manifest file generated: $manifest"
@@ -33,7 +33,7 @@ then
 
 	if [ -f $manifest ]
 	then
-        	/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/manifest_checker.sh $manifest /group_workspaces/cems2/slstr_cpa/incoming/ICM /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/ICM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_report/ICM
+        	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/manifest_checker.sh $manifest /group_workspaces/cems2/slstr_cpa/incoming/ICM /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/S3C/ICM/ /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/transfer_report/ICM
 
 	else
                 echo "No manifest file generated: $manifest"

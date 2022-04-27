@@ -9,11 +9,11 @@ fi
 
 type=$1
 
-year="2017"
+year="2020"
 cnt=1
 #/group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/incoming_report/ICM/daily_manifest
 report_dir=`echo "/group_workspaces/cems2/slstr_cpa/incoming/${type}/daily_manifest/"`
-report_overview=`echo "${report_dir}/all_days_overview_${type}_${year}.txt"`
+report_overview=`echo "${report_dir}/all_days_overview_${type}.txt"`
 
 create_backuplist=`echo "${report_dir}/backup_tar_${type}.txt"`
 

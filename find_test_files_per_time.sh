@@ -41,7 +41,7 @@ do
 	if [ $move = "True" ]
 	then
 		#echo "$file to $destination"
-		/group_workspaces/cems2/slstr_cpa/jasmin_scripts/testing/move_data_from_incoming.sh $file $destination $logdir
+		/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/move_data_from_incoming.sh $file $destination $logdir
 	else
 		echo -e "Found file: $file"	
 	fi
