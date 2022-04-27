@@ -11,8 +11,8 @@ type=$1
 
 year="2020"
 cnt=1
-#/group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/incoming_report/ICM/daily_manifest
-report_dir=`echo "/group_workspaces/cems2/slstr_cpa/incoming/${type}/daily_manifest/"`
+#/gws/nopw/j04/slstr_cpa/s3_slstr_raw_data/incoming_report/ICM/daily_manifest
+report_dir=`echo "/gws/nopw/j04/slstr_cpa/incoming/${type}/daily_manifest/"`
 report_overview=`echo "${report_dir}/all_days_overview_${type}.txt"`
 
 create_backuplist=`echo "${report_dir}/backup_tar_${type}.txt"`
@@ -27,7 +27,7 @@ then
 	rm $report_overview
 fi
 
-backupbasedir="/group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/S3C/"
+backupbasedir="/gws/nopw/j04/slstr_cpa/s3_slstr_raw_data/backup/S3C/"
 
 echo -e "Year: ${year}\tType: ${type}" > $report_overview
 echo -e "\n\nKey:\n\tE = Empty Manifest file\n\tN = No data generated\n\n" >> $report_overview
@@ -120,7 +120,7 @@ do
 
 done
 
-cp $report_overview /group_workspaces/cems2/slstr_cpa/public/s3c_ground_calibration/.
+cp $report_overview /gws/nopw/j04/slstr_cpa/public/s3c_ground_calibration/.
 
 echo "Have processed ${datcnt} report files"
 echo -e "\n\nHave processed ${datcnt} report files\n\n"  >>  $report_overview

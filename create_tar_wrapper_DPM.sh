@@ -5,7 +5,7 @@
 
 for file in `cat $1`
 do
-	/group_workspaces/cems2/slstr_cpa/software/slstr_calibration/create_tar.sh $file /group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/S3C/DPM/
+	/gws/nopw/j04/slstr_cpa/software/slstr_calibration/create_tar.sh $file /gws/nopw/j04/slstr_cpa/s3_slstr_raw_data/backup/S3C/DPM/
 	#echo $file
 
 done

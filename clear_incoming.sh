@@ -19,7 +19,7 @@ year_day=`basename $incoming_report | cut -c1-8`
 #data type
 type=`basename $incoming_report | tr '_' '\t' | awk '{print $3}'`
 
-backupbasedir="/group_workspaces/cems2/slstr_cpa/s3_slstr_raw_data/backup/S3C/"
+backupbasedir="/gws/nopw/j04/slstr_cpa/s3_slstr_raw_data/backup/S3C/"
 
 #predict what the backup name is
 backuptarfile=`echo "${backupbasedir}/${type}/${year_day}_${type}.tar.gz"`
